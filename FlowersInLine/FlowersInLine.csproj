@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E150C2D1-6392-4320-BADA-EBFFF3BDA707}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>FlowersInLine</RootNamespace>
+    <AssemblyName>FlowersInLine</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>MainIco.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="config\Transmision.cs" />
+    <Compile Include="DelegateCommand.cs" />
+    <Compile Include="Enums\LineBonusProperty.cs" />
+    <Compile Include="Enums\Moved.cs" />
+    <Compile Include="IDelegateCommand.cs" />
+    <Compile Include="Mappers\Model2ViewModel.cs" />
+    <Compile Include="Models\FallInfo.cs" />
+    <Compile Include="Models\Flower.cs" />
+    <Compile Include="Models\FlowersGame.cs" />
+    <Compile Include="Pages\StartMenu.xaml.cs">
+      <DependentUpon>StartMenu.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Pages\TheEnd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TheGame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Pages\TheEnd.xaml.cs">
+      <DependentUpon>TheEnd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TheGame.xaml.cs">
+      <DependentUpon>TheGame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="storage\Data.cs" />
+    <Compile Include="ViewModels\StartMenuViewModel.cs" />
+    <Compile Include="ViewModels\TheEndViewModel.cs" />
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Pages\StartMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MainIco.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BackGround\StartMenu\IronMan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BackGround\TheGame\1.png" />
+    <Resource Include="Images\BackGround\TheGame\10.png" />
+    <Resource Include="Images\BackGround\TheGame\2.png" />
+    <Resource Include="Images\BackGround\TheGame\3.png" />
+    <Resource Include="Images\BackGround\TheGame\4.png" />
+    <Resource Include="Images\BackGround\TheGame\5.png" />
+    <Resource Include="Images\BackGround\TheGame\6.png" />
+    <Resource Include="Images\BackGround\TheGame\7.png" />
+    <Resource Include="Images\BackGround\TheGame\8.png" />
+    <Resource Include="Images\BackGround\TheGame\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Flowers\knapweed.png" />
+    <Resource Include="Images\Flowers\onion.png" />
+    <Resource Include="Images\Flowers\orchid.png" />
+    <Resource Include="Images\Flowers\poppy.png" />
+    <Resource Include="Images\Flowers\tulip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Special\BombBonus.png" />
+    <Resource Include="Images\Special\LineBonus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Cadre\Cadre.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\NullElement\null.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Inweder\Invader.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Music\MainMenu.mp3" />
+    <Content Include="Music\EndGame.mp3" />
+    <Content Include="Music\AchievementAct1.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\BackGround\TheEnd\Stone.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
